@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AUG Moda — Carrinho</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="src/css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a href="index.html" class="logo">AUG <span>MODA</span></a>
+    <a href="carrinho.html" class="cart-button" id="cart-button">
+      Carrinho
+      <span class="count" id="cart-count">0</span>
+    </a>
+  </header>
+
+  <main class="cart-page">
+    <h1>Seu carrinho</h1>
+    <div id="cart-items"></div>
+    <div id="cart-empty" class="empty-state" hidden>
+      <span class="eyebrow">Carrinho vazio</span>
+      <p>Adicione peças no <a href="index.html" style="text-decoration:underline">catálogo</a> pra continuar.</p>
+    </div>
+    <div class="cart-summary" id="cart-summary" hidden>
+      <div class="total-row">
+        <span>Total</span>
+        <span class="now">R$ <span id="cart-total">0,00</span></span>
+      </div>
+      <button class="btn btn-whatsapp" id="checkout-btn" type="button">Finalizar pelo WhatsApp</button>
+      <p class="cart-note">Você vai ser redirecionado pro WhatsApp da loja com os itens já listados. Nenhum pagamento é feito aqui.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    AUG MODA — Catálogo digital · Compra finalizada por WhatsApp
+  </footer>
+
+  <script type="module" src="src/js/pages/carrinho.js"></script>
+</body>
+</html>

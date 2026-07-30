@@ -1,0 +1,114 @@
+/* ========================================================
+   AUG MODA — Tokens de design v2
+   Conceito: marketplace moderno — cartões brancos sobre
+   fundo cinza claro, amarelo de ação, azul de confiança,
+   preço em destaque, tipografia direta e legível.
+   ======================================================== */
+
+:root {
+  /* Cor */
+  --bg-page: #ebebeb;
+  --surface: #ffffff;
+  --ink: #1a1a1a;
+  --ink-soft: #6b6b6b;
+  --line: #e0e0e0;
+
+  --brand-yellow: #ffd600;
+  --brand-yellow-dark: #e6c100;
+  --brand-blue: #2d6ae3;
+  --brand-blue-dark: #1f4fb8;
+  --brand-navy: #12203d;
+
+  --price: #1a1a1a;
+  --discount: #2e9c4b;
+  --discount-bg: #e5f7e9;
+  --stock-ok: #2e9c4b;
+  --stock-low: #c77700;
+  --stock-out: #d3222a;
+
+  /* Tipografia */
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  /* Escala */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+
+  --radius-card: 8px;
+  --radius-pill: 999px;
+
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-lift: 0 8px 24px -8px rgba(0, 0, 0, 0.28);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg-page);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.price-mono {
+  font-variant-numeric: tabular-nums;
+}
+
+:focus-visible {
+  outline: 2px solid var(--brand-blue);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}

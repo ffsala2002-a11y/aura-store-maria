@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AUG Moda — Catálogo</title>
+  <meta name="description" content="Catálogo de roupas AUG Moda. Escolha, monte seu carrinho e finalize pelo WhatsApp." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="src/css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a href="index.html" class="logo">AUG <span>MODA</span></a>
+    <a href="carrinho.html" class="cart-button" id="cart-button">
+      Carrinho
+      <span class="count" id="cart-count">0</span>
+    </a>
+  </header>
+
+  <section class="hero">
+    <span class="eyebrow">Coleção atual</span>
+    <h1>Vista-se sem<br />complicação</h1>
+    <p>Monte seu carrinho e finalize direto no WhatsApp com quem te atende de verdade.</p>
+  </section>
+
+  <nav class="filters" id="filters" aria-label="Filtrar por categoria"></nav>
+
+  <section class="rail-section">
+    <div class="product-grid" id="product-grid">
+      <!-- Cartões de produto entram aqui via JS -->
+    </div>
+    <div class="empty-state" id="empty-state" hidden>
+      <span class="eyebrow">Etiqueta vazia</span>
+      <p>Nenhum produto encontrado nessa categoria por enquanto.</p>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    AUG MODA — Catálogo digital · Compra finalizada por WhatsApp
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script type="module" src="src/js/pages/home.js"></script>
+</body>
+</html>

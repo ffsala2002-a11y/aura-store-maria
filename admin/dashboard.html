@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AUG Moda — Admin · Produtos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body class="admin">
+  <header class="admin-header">
+    <a href="dashboard.html" class="logo">AUG <span>MODA</span></a>
+    <nav>
+      <a href="produto-form.html">+ Produto</a>
+      <button type="button" id="logout-btn">Sair</button>
+    </nav>
+  </header>
+
+  <main class="admin-main">
+    <div class="admin-toolbar">
+      <h1>Produtos</h1>
+      <a href="produto-form.html" class="btn-add">+ Novo produto</a>
+    </div>
+
+    <div class="search-row">
+      <input type="search" id="search-input" placeholder="Buscar por nome ou categoria..." />
+    </div>
+
+    <div id="product-list"></div>
+    <p id="empty-msg" class="helper-text" hidden>Nenhum produto cadastrado ainda.</p>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script type="module" src="js/pages/dashboard.js"></script>
+</body>
+</html>

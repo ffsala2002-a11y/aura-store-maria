@@ -1,0 +1,451 @@
+@import url("../../src/css/tokens.css");
+
+body.admin {
+  background: var(--canvas);
+  min-height: 100vh;
+}
+
+/* ---------------------------------------------------------
+   Cabeçalho do admin
+   --------------------------------------------------------- */
+.admin-header {
+  background: var(--denim);
+  color: var(--paper);
+  padding: var(--space-3) var(--space-4);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 30;
+}
+
+.admin-header .logo {
+  font-family: var(--font-display);
+  font-size: 22px;
+}
+
+.admin-header .logo span {
+  color: var(--gold);
+}
+
+.admin-header nav {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+}
+
+.admin-header a,
+.admin-header button {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  color: var(--paper);
+  background: none;
+  border: 1px solid rgba(251, 249, 243, 0.35);
+  border-radius: var(--radius-pill);
+  padding: var(--space-1) var(--space-3);
+}
+
+/* ---------------------------------------------------------
+   Tela de login
+   --------------------------------------------------------- */
+.login-wrap {
+  min-height: calc(100vh - 0px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-5);
+}
+
+.login-card {
+  background: var(--paper);
+  border-radius: var(--radius-tag);
+  box-shadow: var(--shadow-lift);
+  padding: var(--space-6);
+  width: 100%;
+  max-width: 360px;
+}
+
+.login-card h1 {
+  font-family: var(--font-display);
+  font-size: 30px;
+  color: var(--denim);
+  margin: 0 0 var(--space-1);
+}
+
+.login-card p.sub {
+  color: var(--ink-soft);
+  margin: 0 0 var(--space-5);
+  font-size: 13.5px;
+}
+
+.field {
+  margin-bottom: var(--space-4);
+}
+
+.field label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: var(--space-2);
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: var(--space-3);
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  background: #fff;
+  color: var(--ink);
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+.form-error {
+  color: var(--thread);
+  font-size: 13px;
+  margin-bottom: var(--space-3);
+  min-height: 18px;
+}
+
+/* ---------------------------------------------------------
+   Layout geral do admin
+   --------------------------------------------------------- */
+.admin-main {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: var(--space-5) var(--space-4) var(--space-8);
+}
+
+.admin-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-5);
+}
+
+.admin-toolbar h1 {
+  font-family: var(--font-display);
+  font-size: 30px;
+  color: var(--denim);
+  margin: 0;
+}
+
+.btn-add {
+  background: var(--thread);
+  color: var(--paper);
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: var(--space-3) var(--space-5);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.search-row {
+  margin-bottom: var(--space-4);
+}
+
+.search-row input {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  padding: var(--space-3) var(--space-4);
+  font-family: var(--font-body);
+  font-size: 14px;
+  background: var(--paper);
+}
+
+/* ---------------------------------------------------------
+   Cartão de produto no admin (formato de linha, não etiqueta)
+   --------------------------------------------------------- */
+.admin-product {
+  background: var(--paper);
+  border-radius: 10px;
+  box-shadow: var(--shadow-card);
+  padding: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+.admin-product-head {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+}
+
+.admin-product-head .thumb {
+  width: 56px;
+  height: 70px;
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--canvas);
+  flex: none;
+}
+
+.admin-product-head .thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.admin-product-head .info {
+  flex: 1;
+  min-width: 0;
+}
+
+.admin-product-head h3 {
+  margin: 0 0 2px;
+  font-size: 15px;
+}
+
+.admin-product-head .meta {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--ink-soft);
+}
+
+.status-badge {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+}
+
+.status-badge.active {
+  background: rgba(63, 107, 79, 0.14);
+  color: var(--stock-ok);
+}
+
+.status-badge.inactive {
+  background: rgba(90, 84, 74, 0.14);
+  color: var(--ink-soft);
+}
+
+.admin-product-actions {
+  display: flex;
+  gap: var(--space-2);
+  flex: none;
+}
+
+.icon-btn {
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 8px;
+  padding: var(--space-2) var(--space-3);
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+/* Tabela de variações dentro do card (tamanho / cor / estoque) */
+.variant-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: var(--space-4);
+  font-size: 13px;
+}
+
+.variant-table th {
+  text-align: left;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+  padding: var(--space-2);
+  border-bottom: 1px solid var(--line);
+}
+
+.variant-table td {
+  padding: var(--space-2);
+  border-bottom: 1px solid var(--line);
+  vertical-align: middle;
+}
+
+.stock-input-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.stock-input-row button {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: var(--canvas);
+}
+
+.stock-input-row input {
+  width: 52px;
+  text-align: center;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 4px;
+  font-family: var(--font-mono);
+}
+
+/* ---------------------------------------------------------
+   Formulário de produto
+   --------------------------------------------------------- */
+.variant-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 90px auto;
+  gap: var(--space-2);
+  align-items: end;
+  margin-bottom: var(--space-3);
+  padding-bottom: var(--space-3);
+  border-bottom: 1px dashed var(--line);
+}
+
+@media (max-width: 640px) {
+  .variant-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.variant-row .remove-variant {
+  background: none;
+  border: none;
+  color: var(--thread);
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+.btn-outline-add {
+  background: none;
+  border: 1px dashed var(--denim);
+  color: var(--denim);
+  border-radius: 8px;
+  padding: var(--space-2) var(--space-4);
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+}
+
+.form-actions {
+  display: flex;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+}
+
+.form-actions .btn {
+  width: auto;
+  flex: 1;
+}
+
+.helper-text {
+  font-size: 12px;
+  color: var(--ink-soft);
+  margin-top: 4px;
+}
+
+.image-preview {
+  width: 100px;
+  height: 125px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--canvas);
+  margin-bottom: var(--space-3);
+}
+
+.image-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photo-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+.photo-gallery .photo-item {
+  position: relative;
+  width: 92px;
+}
+
+.photo-gallery .photo-thumb {
+  width: 92px;
+  height: 92px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--canvas);
+  border: 2px solid transparent;
+}
+
+.photo-gallery .photo-item:first-child .photo-thumb {
+  border-color: var(--gold);
+}
+
+.photo-gallery .photo-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photo-gallery .cover-tag {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  background: var(--gold);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 5px;
+  border-radius: 4px;
+  z-index: 2;
+}
+
+.photo-gallery .photo-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4px;
+}
+
+.photo-gallery .photo-actions button {
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 6px;
+  font-size: 11px;
+  padding: 2px 6px;
+}
+
+.photo-gallery .photo-actions .remove-photo {
+  color: var(--thread);
+  border-color: var(--thread);
+}
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--denim);
+  color: var(--paper);
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-pill);
+  font-size: 13.5px;
+  box-shadow: var(--shadow-lift);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 60;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}

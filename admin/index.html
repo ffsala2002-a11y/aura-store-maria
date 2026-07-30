@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AUG Moda — Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body class="admin">
+  <div class="login-wrap">
+    <form class="login-card" id="login-form">
+      <h1>AUG <span style="color:var(--gold)">MODA</span></h1>
+      <p class="sub">Painel administrativo</p>
+
+      <div class="field">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" autocomplete="username" required />
+      </div>
+
+      <div class="field">
+        <label for="password">Senha</label>
+        <input type="password" id="password" name="password" autocomplete="current-password" required />
+      </div>
+
+      <p class="form-error" id="form-error"></p>
+
+      <button type="submit" class="btn btn-primary" id="submit-btn">Entrar</button>
+    </form>
+  </div>
+
+  <script type="module" src="js/pages/login.js"></script>
+</body>
+</html>
