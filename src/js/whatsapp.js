@@ -73,3 +73,9 @@ export function openWhatsAppShareProduct(product, productUrl) {
   const message = buildShareMessage(product, productUrl);
   window.open(buildWhatsAppUrl(message), "_blank");
 }
+
+// Contato genérico (usado pelo ícone de "Contato" da navbar/menu)
+export function openWhatsAppContact() {
+  const message = `Olá! Vim do site da ${STORE_NAME} e queria falar com vocês.`;
+  window.open(buildWhatsAppUrl(message), "_blank");
+}

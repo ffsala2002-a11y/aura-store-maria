@@ -5,43 +5,96 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AUG Moda — Catálogo</title>
   <meta name="description" content="Catálogo de roupas AUG Moda. Escolha, monte seu carrinho e finalize pelo WhatsApp." />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css" integrity="sha512-ApSLB1Pd3/bZN8fWB/RG9YhN/7bd9Hkf3AGaE2mPfebjrxagjuBtx2GcgdqIlJkUzwylBo61r9Xa9NmgBI0swA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="./src/css/style.css" />
+  <link rel="stylesheet" href="src/css/style.css" />
 </head>
 <body>
   <header class="site-header">
-    <a href="index.html" class="logo">AUG <span>MODA</span></a>
-    <a href="carrinho.html" class="cart-button" id="cart-button">
-      Carrinho
-      <span class="count" id="cart-count">0</span>
-    </a>
+    <div class="header-left">
+      <button type="button" class="header-icon-btn" id="menu-btn" aria-label="Abrir menu">☰</button>
+      <div class="logo-block">
+        <div class="logo">Aura <span>Store</span></div>
+        <div class="logo-sub">Catálogo digital</div>
+      </div>
+    </div>
+    <div class="header-actions">
+      <button type="button" class="header-icon-btn" id="search-btn" aria-label="Buscar" style="display: none;">🔍</button>
+      <button type="button" class="header-icon-btn" id="refresh-btn" aria-label="Atualizar catálogo">⟳</button>
+      <button type="button" class="header-icon-btn" id="sort-btn" aria-label="Ordenar" style="display: none;">⋮</button>
+      <a href="carrinho.html" class="cart-button" id="cart-button">
+        🛍️ Carrinho
+        <span class="count" id="cart-count">0</span>
+      </a>
+    </div>
   </header>
 
-  <section class="hero">
-    <span class="eyebrow">Coleção atual</span>
-    <h1>Vista-se sem<br />complicação</h1>
-    <p>Monte seu carrinho e finalize direto no WhatsApp com quem te atende de verdade.</p>
-  </section>
+  <div class="search-bar" id="search-bar">
+    <input type="search" id="search-input" placeholder="Buscar produtos..." />
+  </div>
 
-  <nav class="filters" id="filters" aria-label="Filtrar por categoria"></nav>
+  <div class="hero-wrap">
+    <section class="hero">
+      <div>
+        <span class="eyebrow-pill">Coleção atual</span>
+        <h1>Vista-se sem <span>complicação</span></h1>
+        <p>Monte seu carrinho e finalize direto no WhatsApp com quem te atende de verdade.</p>
+      </div>
+      <div class="hero-photo">
+        <img src="assets/hero-roupas.jpg" alt="Roupas penduradas no varal" onerror="this.parentElement.style.display='none'" />
+      </div>
+      <div class="hero-features">
+        <span class="feature"><span class="icon">💬</span> Atendimento via WhatsApp</span>
+        <span class="feature"><span class="icon">🛡️</span> Compra segura</span>
+        <span class="feature"><span class="icon">📦</span> Produtos de qualidade</span>
+      </div>
+    </section>
+  </div>
+
+  <div class="filters-row">
+    <nav class="filters" id="filters" aria-label="Filtrar por categoria"></nav>
+    <button type="button" class="filter-sort-btn" id="filter-btn">⚙️ Filtrar</button>
+  </div>
 
   <section class="rail-section">
     <div class="product-grid" id="product-grid">
       <!-- Cartões de produto entram aqui via JS -->
     </div>
     <div class="empty-state" id="empty-state" hidden>
-      <span class="eyebrow">Etiqueta vazia</span>
-      <p>Nenhum produto encontrado nessa categoria por enquanto.</p>
+      <span class="eyebrow">Nada por aqui</span>
+      <p>Nenhum produto encontrado nessa busca por enquanto.</p>
     </div>
   </section>
 
+  <!--<div class="trust-strip">
+    <div class="inner">
+      <div class="item"><span class="icon">🏅</span> Qualidade garantida</div>
+      <div class="item"><span class="icon">🚚</span> Envio rápido e seguro</div>
+      <div class="item"><span class="icon">🎧</span> Suporte via WhatsApp</div>
+    </div>
+  </div>-->
+
   <footer class="site-footer">
-    AUG MODA — Catálogo digital · Compra finalizada por WhatsApp
+    <div>
+      <div class="logo">Aura <span>Store</span></div>
+      <div class="logo-sub">Catálogo digital</div>
+    </div>
+    <div class="footer-right">
+      <span>Compra finalizada por WhatsApp</span>
+      <a href="carrinho.html" class="wa-icon-btn" aria-label="Ir pro carrinho">💬</a>
+    </div>
   </footer>
+
+  <nav class="bottom-nav" aria-label="Navegação principal">
+    <a href="index.html" class="active"><span class="icon"><i class="fa-solid fa-house"></i></span>Início</a>
+    <a href="#" id="nav-search"><span class="icon"><i class="fa-solid fa-magnifying-glass"></i></span>Buscar</a>
+    <a href="carrinho.html"><span class="icon"><i class="fa-solid fa-cart-flatbed"></i></span>Carrinho<span class="nav-count" id="nav-cart-count" hidden></span></a>
+    <a href="#" id="nav-contact"><span class="icon"><i class="fa-solid fa-comment"></i></span>Contato</a>
+  </nav>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-  <script type="module" src="./src/js/pages/home.js"></script>
+  <script type="module" src="src/js/pages/home.js"></script>
 </body>
 </html>

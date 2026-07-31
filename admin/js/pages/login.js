@@ -22,7 +22,7 @@ form.addEventListener("submit", async (e) => {
     await signIn(email, password);
     window.location.href = "dashboard.html";
   } catch (err) {
-    errorEl.textContent = "E-mail ou senha incorretos.";
+    errorEl.textContent = err.message ?? "E-mail ou senha incorretos.";
     submitBtn.disabled = false;
     submitBtn.textContent = "Entrar";
   }

@@ -1,8 +1,9 @@
 import { getCart, updateQty, removeFromCart, getCartTotal } from "../cart.js";
 import { openWhatsAppWithCart } from "../whatsapp.js";
-import { initCartBadge, formatBRL } from "../ui.js";
+import { initCartBadge, initContactLink, formatBRL } from "../ui.js";
 
 initCartBadge();
+initContactLink();
 
 const itemsEl = document.getElementById("cart-items");
 const emptyEl = document.getElementById("cart-empty");

@@ -1,10 +1,11 @@
 import { fetchProductById, galleryImages } from "../catalog.js";
 import { addToCart } from "../cart.js";
 import { openWhatsAppWithProduct, openWhatsAppShareProduct } from "../whatsapp.js";
-import { initCartBadge, showToast, formatBRL } from "../ui.js";
+import { initCartBadge, initContactLink, showToast, formatBRL } from "../ui.js";
 import { mountGallery } from "../gallery.js";
 
 initCartBadge();
+initContactLink();
 
 const root = document.getElementById("product-root");
 const params = new URLSearchParams(window.location.search);
@@ -75,7 +76,7 @@ function render() {
 
         <div class="action-row">
           <button class="btn btn-primary" id="add-cart-btn" type="button">Adicionar ao carrinho</button>
-          <button class="btn btn-whatsapp" id="whatsapp-btn" type="button">Falar no WhatsApp sobre esta peça</button>
+          <button class="btn btn-whatsapp" id="whatsapp-btn" type="button" style="display: none;">Falar no WhatsApp sobre esta peça</button>
           <button class="btn btn-share" id="share-btn" type="button">Compartilhar produto</button>
         </div>
       </div>

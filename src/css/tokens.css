@@ -1,28 +1,38 @@
 /* ========================================================
-   AUG MODA — Tokens de design v2
-   Conceito: marketplace moderno — cartões brancos sobre
-   fundo cinza claro, amarelo de ação, azul de confiança,
-   preço em destaque, tipografia direta e legível.
+   AUG MODA — Tokens de design v3
+   Conceito: app de loja moderno — cabeçalho e hero em navy
+   escuro, cartões brancos sobre fundo claro, azul de ação,
+   verde de confirmação, navbar inferior fixa (estilo app).
    ======================================================== */
 
 :root {
+  --backgroundSiteHeader: #0a0a0a;
+  --backgroundCartButton: rgb(199, 195, 195);
+
+  --white: #fff;
+  --black: #000;
+  --gray: rgb(199, 195, 195);
+  --green: rgb(24, 134, 2);
+  --blue: #03a12a;
+
+
   /* Cor */
-  --bg-page: #ebebeb;
+  --bg-page: #f2f3f5;
   --surface: #ffffff;
   --ink: #1a1a1a;
-  --ink-soft: #6b6b6b;
-  --line: #e0e0e0;
+  --ink-soft: #6b7280;
+  --line: #e5e7eb;
 
-  --brand-yellow: #ffd600;
-  --brand-yellow-dark: #e6c100;
-  --brand-blue: #2d6ae3;
-  --brand-blue-dark: #1f4fb8;
-  --brand-navy: #12203d;
+  --navy: #0e1a2e;
+  --navy-soft: #142640;
+  --brand-blue: #2f6fed;
+  --brand-blue-dark: #1f52c2;
+  --brand-navy: #0e1a2e;
 
   --price: #1a1a1a;
-  --discount: #2e9c4b;
-  --discount-bg: #e5f7e9;
-  --stock-ok: #2e9c4b;
+  --discount: #22c55e;
+  --discount-bg: #e6f9ed;
+  --stock-ok: #16a34a;
   --stock-low: #c77700;
   --stock-out: #d3222a;
 

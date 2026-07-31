@@ -6,15 +6,23 @@
   <title>AUG Moda — Produto</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="./src/css/style.css" />
+  <link rel="stylesheet" href="src/css/style.css" />
 </head>
 <body>
   <header class="site-header">
-    <a href="index.html" class="logo">AUG <span>MODA</span></a>
-    <a href="carrinho.html" class="cart-button" id="cart-button">
-      Carrinho
-      <span class="count" id="cart-count">0</span>
-    </a>
+    <div class="header-left">
+      <a href="index.html" class="header-icon-btn" aria-label="Voltar pro catálogo">←</a>
+      <div class="logo-block">
+        <div class="logo">AUG <span>MODA</span></div>
+        <div class="logo-sub">Catálogo digital</div>
+      </div>
+    </div>
+    <div class="header-actions">
+      <a href="carrinho.html" class="cart-button" id="cart-button">
+        🛍️ Carrinho
+        <span class="count" id="cart-count">0</span>
+      </a>
+    </div>
   </header>
 
   <main id="product-root">
@@ -22,11 +30,25 @@
   </main>
 
   <footer class="site-footer">
-    AUG MODA — Catálogo digital · Compra finalizada por WhatsApp
+    <div>
+      <div class="logo">AUG <span>MODA</span></div>
+      <div class="logo-sub">Catálogo digital</div>
+    </div>
+    <div class="footer-right">
+      <span>Compra finalizada por WhatsApp</span>
+      <a href="carrinho.html" class="wa-icon-btn" aria-label="Ir pro carrinho">💬</a>
+    </div>
   </footer>
+
+  <nav class="bottom-nav" aria-label="Navegação principal">
+    <a href="index.html"><span class="icon">🏠</span>Início</a>
+    <a href="index.html"><span class="icon">🔍</span>Buscar</a>
+    <a href="carrinho.html" id="bottom-nav-cart"><span class="icon">🛒</span>Carrinho<span class="nav-count" id="nav-cart-count" hidden></span></a>
+    <a href="#" id="nav-contact"><span class="icon">💬</span>Contato</a>
+  </nav>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-  <script type="module" src="./src/js/pages/produto.js"></script>
+  <script type="module" src="src/js/pages/produto.js"></script>
 </body>
 </html>

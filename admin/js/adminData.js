@@ -162,9 +162,6 @@ function fileToBase64(file) {
 }
 
 export async function uploadImageToGithub(file) {
-
-  console.log(await supabase.auth.getSession());
-
   const {
     data: { session },
   } = await supabase.auth.getSession();

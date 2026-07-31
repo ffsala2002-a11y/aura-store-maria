@@ -6,14 +6,29 @@ import { getCartCount } from "./cart.js";
 
 export function initCartBadge() {
   const badge = document.getElementById("cart-count");
-  if (!badge) return;
+  const navBadge = document.getElementById("nav-cart-count");
 
   const update = () => {
-    badge.textContent = String(getCartCount());
+    const count = getCartCount();
+    if (badge) badge.textContent = String(count);
+    if (navBadge) {
+      navBadge.textContent = String(count);
+      navBadge.hidden = count === 0;
+    }
   };
 
   update();
   window.addEventListener("cart:changed", update);
+}
+
+export function initContactLink() {
+  const link = document.getElementById("nav-contact");
+  if (!link) return;
+  link.addEventListener("click", async (e) => {
+    e.preventDefault();
+    const { openWhatsAppContact } = await import("./whatsapp.js");
+    openWhatsAppContact();
+  });
 }
 
 let toastTimer = null;
