@@ -1,75 +1,180 @@
 @import url("../../src/css/tokens.css");
 
+/* ===========================================================
+   Admin AUG Moda — usa os tokens reais do projeto (navy,
+   brand-blue, surface, bg-page, stock-ok/out) e segue a mesma
+   linguagem visual do site: header navy, cards brancos sobre
+   fundo claro, ação em azul. Mobile-first, cara de app nativo.
+   =========================================================== */
+
 body.admin {
-  background: var(--canvas);
+  background: var(--bg-page);
   min-height: 100vh;
+  min-height: 100dvh;
+  -webkit-tap-highlight-color: transparent;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a,
+button {
+  touch-action: manipulation;
+  transition: transform 0.12s ease, opacity 0.12s ease, background 0.12s ease;
+}
+
+a:active,
+button:active {
+  transform: scale(0.96);
+  opacity: 0.85;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  a:active,
+  button:active {
+    transform: none;
+  }
+}
+
+/* ---------------------------------------------------------
+   Botões — definidos aqui porque o admin não carrega style.css
+   --------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  border: none;
+  border-radius: 10px;
+  padding: var(--space-3) var(--space-5);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 14.5px;
+  width: 100%;
+  min-height: 46px;
+}
+
+.btn-primary {
+  background: var(--green);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  transform: scale(1.05);
+}
+
+.btn-primary:disabled {
+  background: var(--line);
+  color: var(--ink-soft);
+  cursor: not-allowed;
+}
+
+.btn-ghost {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--ink-soft);
 }
 
 /* ---------------------------------------------------------
    Cabeçalho do admin
    --------------------------------------------------------- */
 .admin-header {
-  background: var(--denim);
-  color: var(--paper);
-  padding: var(--space-3) var(--space-4);
+  background: var(--black);
+  color: #fff;
+  padding: calc(var(--space-3) + env(safe-area-inset-top)) var(--space-4) var(--space-3);
   display: flex;
   align-items: center;
   justify-content: space-between;
   position: sticky;
   top: 0;
   z-index: 30;
+  box-shadow: var(--shadow-card);
 }
 
 .admin-header .logo {
-  font-family: var(--font-display);
-  font-size: 22px;
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  white-space: nowrap;
 }
 
 .admin-header .logo span {
-  color: var(--gold);
+  color: var(white);
 }
 
 .admin-header nav {
   display: flex;
-  gap: var(--space-3);
+  gap: var(--space-2);
   align-items: center;
 }
 
 .admin-header a,
 .admin-header button {
   font-family: var(--font-mono);
-  font-size: 12.5px;
-  color: var(--paper);
+  font-size: 12px;
+  color: #fff;
   background: none;
-  border: 1px solid rgba(251, 249, 243, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: var(--radius-pill);
-  padding: var(--space-1) var(--space-3);
+  padding: 6px var(--space-3);
+  min-height: 32px;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+  .admin-header {
+    padding-left: var(--space-3);
+    padding-right: var(--space-3);
+  }
+
+  .admin-header .logo {
+    font-size: 16px;
+  }
+
+  .admin-header nav {
+    gap: 6px;
+  }
+
+  .admin-header a,
+  .admin-header button {
+    font-size: 10.5px;
+    padding: 6px 10px;
+  }
 }
 
 /* ---------------------------------------------------------
    Tela de login
    --------------------------------------------------------- */
 .login-wrap {
-  min-height: calc(100vh - 0px);
+  min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--space-5);
+  padding: var(--space-5) var(--space-4);
+  padding-top: calc(var(--space-5) + env(safe-area-inset-top));
+  padding-bottom: calc(var(--space-5) + env(safe-area-inset-bottom));
+  background: linear-gradient(160deg, var(--navy) 0%, var(--navy-soft) 55%, var(--bg-page) 55%);
 }
 
 .login-card {
-  background: var(--paper);
-  border-radius: var(--radius-tag);
+  background: var(--surface);
+  border-radius: 20px;
   box-shadow: var(--shadow-lift);
-  padding: var(--space-6);
+  padding: var(--space-6) var(--space-5);
   width: 100%;
   max-width: 360px;
 }
 
 .login-card h1 {
-  font-family: var(--font-display);
-  font-size: 30px;
-  color: var(--denim);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  font-size: 26px;
+  color: var(--ink);
   margin: 0 0 var(--space-1);
 }
 
@@ -79,6 +184,13 @@ body.admin {
   font-size: 13.5px;
 }
 
+.login-card button[type="submit"] {
+  margin-top: var(--space-2);
+}
+
+/* ---------------------------------------------------------
+   Campos de formulário
+   --------------------------------------------------------- */
 .field {
   margin-bottom: var(--space-4);
 }
@@ -98,12 +210,15 @@ body.admin {
 .field textarea {
   width: 100%;
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: 10px;
   padding: var(--space-3);
   font-family: var(--font-body);
-  font-size: 14.5px;
+  font-size: 16px; /* evita zoom automático no iOS ao focar */
   background: #fff;
   color: var(--ink);
+  min-height: 46px;
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 .field textarea {
@@ -111,11 +226,105 @@ body.admin {
   min-height: 90px;
 }
 
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--brand-blue);
+  box-shadow: 0 0 0 3px rgba(47, 111, 237, 0.15);
+}
+
+/* Checkbox "Visível no site" — toggle no estilo app nativo */
+.field label:has(input[type="checkbox"]) {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  cursor: pointer;
+  text-transform: none;
+  letter-spacing: normal;
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  color: var(--ink);
+}
+
+.field input[type="checkbox"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 42px !important;
+  height: 26px;
+  min-height: 0;
+  border-radius: 999px;
+  background: var(--line);
+  border: none;
+  position: relative;
+  flex: none;
+  margin-right: var(--space-3) !important;
+  transition: background 0.15s ease;
+}
+
+.field input[type="checkbox"]::before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  transition: transform 0.15s ease;
+}
+
+.field input[type="checkbox"]:checked {
+  background: var(--stock-ok);
+}
+
+.field input[type="checkbox"]:checked::before {
+  transform: translateX(16px);
+}
+
+/* Input de cor (variação) — mantém compacto */
+.field input[type="color"] {
+  min-height: 40px;
+  padding: 4px;
+  cursor: pointer;
+}
+
+/* Input de arquivo (fotos do produto) */
+.field input[type="file"] {
+  width: 100%;
+  min-height: 46px;
+  border: 1px dashed var(--line);
+  border-radius: 10px;
+  padding: var(--space-3);
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  background: var(--surface);
+  color: var(--ink-soft);
+}
+
+.field input[type="file"]::file-selector-button {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: #fff;
+  background: var(--navy);
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: 8px 14px;
+  margin-right: var(--space-3);
+}
+
 .form-error {
-  color: var(--thread);
+  color: var(--stock-out);
   font-size: 13px;
   margin-bottom: var(--space-3);
   min-height: 18px;
+}
+
+.helper-text {
+  font-size: 12px;
+  color: var(--ink-soft);
+  margin-top: 4px;
 }
 
 /* ---------------------------------------------------------
@@ -124,7 +333,7 @@ body.admin {
 .admin-main {
   max-width: 980px;
   margin: 0 auto;
-  padding: var(--space-5) var(--space-4) var(--space-8);
+  padding: var(--space-4) var(--space-4) calc(var(--space-8) + env(safe-area-inset-bottom));
 }
 
 .admin-toolbar {
@@ -133,28 +342,38 @@ body.admin {
   justify-content: space-between;
   gap: var(--space-3);
   flex-wrap: wrap;
-  margin-bottom: var(--space-5);
+  margin-bottom: var(--space-4);
 }
 
 .admin-toolbar h1 {
-  font-family: var(--font-display);
-  font-size: 30px;
-  color: var(--denim);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  font-size: 24px;
+  color: var(--ink);
   margin: 0;
 }
 
 .btn-add {
-  background: var(--thread);
-  color: var(--paper);
+  background: var(--green);
+  color: #fff;
   border: none;
   border-radius: var(--radius-pill);
   padding: var(--space-3) var(--space-5);
-  font-weight: 600;
+  font-weight: 700;
   font-size: 14px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
 }
 
 .search-row {
   margin-bottom: var(--space-4);
+  position: sticky;
+  top: calc(53px + env(safe-area-inset-top));
+  z-index: 20;
+  background: var(--bg-page);
+  padding-top: var(--space-2);
+  padding-bottom: 2px;
 }
 
 .search-row input {
@@ -163,33 +382,36 @@ body.admin {
   border-radius: var(--radius-pill);
   padding: var(--space-3) var(--space-4);
   font-family: var(--font-body);
-  font-size: 14px;
-  background: var(--paper);
+  font-size: 16px;
+  background: var(--surface);
+  min-height: 46px;
+  box-shadow: var(--shadow-card);
 }
 
 /* ---------------------------------------------------------
-   Cartão de produto no admin (formato de linha, não etiqueta)
+   Cartão de produto no admin
    --------------------------------------------------------- */
 .admin-product {
-  background: var(--paper);
-  border-radius: 10px;
+  background: var(--surface);
+  border-radius: 16px;
   box-shadow: var(--shadow-card);
   padding: var(--space-4);
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-3);
 }
 
 .admin-product-head {
   display: flex;
   gap: var(--space-3);
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .admin-product-head .thumb {
   width: 56px;
   height: 70px;
-  border-radius: 6px;
+  border-radius: 8px;
   overflow: hidden;
-  background: var(--canvas);
+  background: var(--bg-page);
   flex: none;
 }
 
@@ -201,12 +423,16 @@ body.admin {
 
 .admin-product-head .info {
   flex: 1;
-  min-width: 0;
+  min-width: 150px;
 }
 
 .admin-product-head h3 {
   margin: 0 0 2px;
   font-size: 15px;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .admin-product-head .meta {
@@ -219,20 +445,25 @@ body.admin {
   font-family: var(--font-mono);
   font-size: 10.5px;
   text-transform: uppercase;
-  padding: 2px 8px;
+  padding: 3px 9px;
   border-radius: var(--radius-pill);
+  display: inline-block;
+  margin-top: 4px;
 }
 
 .status-badge.active {
-  background: rgba(63, 107, 79, 0.14);
+  background: var(--discount-bg);
   color: var(--stock-ok);
 }
 
 .status-badge.inactive {
-  background: rgba(90, 84, 74, 0.14);
+  background: var(--line);
   color: var(--ink-soft);
 }
 
+/* No desktop as ações ficam ao lado; no mobile viram uma linha
+   cheia abaixo, com os 3 botões (Editar / Ocultar / Excluir)
+   divididos igualmente — nada de espremer texto */
 .admin-product-actions {
   display: flex;
   gap: var(--space-2);
@@ -246,9 +477,42 @@ body.admin {
   padding: var(--space-2) var(--space-3);
   font-family: var(--font-mono);
   font-size: 12px;
+  min-height: 36px;
+  color: var(--ink);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
 }
 
-/* Tabela de variações dentro do card (tamanho / cor / estoque) */
+.icon-btn[data-delete] {
+  border-color: rgba(211, 34, 42, 0.35);
+  color: var(--stock-out);
+}
+
+@media (max-width: 560px) {
+  .admin-product-head {
+    align-items: flex-start;
+  }
+
+  .admin-product-actions {
+    flex: 1 1 100%;
+    order: 3;
+    margin-top: var(--space-1);
+  }
+
+  .icon-btn {
+    flex: 1;
+    min-height: 40px;
+    font-size: 11.5px;
+  }
+}
+
+/* ---------------------------------------------------------
+   Tabela de variações (tamanho / cor / estoque)
+   No mobile vira lista de cartões — tabela em tela estreita
+   é sempre difícil de ler.
+   --------------------------------------------------------- */
 .variant-table {
   width: 100%;
   border-collapse: collapse;
@@ -280,11 +544,14 @@ body.admin {
 }
 
 .stock-input-row button {
-  width: 26px;
-  height: 26px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   border: 1px solid var(--line);
-  background: var(--canvas);
+  background: var(--bg-page);
+  font-size: 15px;
+  line-height: 1;
+  color: var(--ink);
 }
 
 .stock-input-row input {
@@ -292,12 +559,53 @@ body.admin {
   text-align: center;
   border: 1px solid var(--line);
   border-radius: 6px;
-  padding: 4px;
+  padding: 6px 4px;
   font-family: var(--font-mono);
+  font-size: 15px;
+}
+
+@media (max-width: 560px) {
+  .variant-table,
+  .variant-table thead,
+  .variant-table tbody,
+  .variant-table th,
+  .variant-table td,
+  .variant-table tr {
+    display: block;
+  }
+
+  .variant-table thead {
+    display: none;
+  }
+
+  .variant-table tr {
+    background: var(--bg-page);
+    border-radius: 12px;
+    padding: var(--space-3);
+    margin-bottom: var(--space-2);
+    border-bottom: none;
+  }
+
+  .variant-table td {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: none;
+    padding: 6px 0;
+  }
+
+  .variant-table td::before {
+    content: attr(data-label);
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-soft);
+  }
 }
 
 /* ---------------------------------------------------------
-   Formulário de produto
+   Formulário de produto — linhas de variação
    --------------------------------------------------------- */
 .variant-row {
   display: grid;
@@ -318,21 +626,31 @@ body.admin {
 .variant-row .remove-variant {
   background: none;
   border: none;
-  color: var(--thread);
+  color: var(--stock-out);
   font-family: var(--font-mono);
   font-size: 12px;
+  min-height: 36px;
+  border: solid 1px var(--gray);
+  border-radius: 10px;
+  color: #c40303;
+  background-color: rgb(243, 180, 180);
 }
 
 .btn-outline-add {
   background: none;
-  border: 1px dashed var(--denim);
-  color: var(--denim);
-  border-radius: 8px;
-  padding: var(--space-2) var(--space-4);
+  border: 1px dashed var(--green);
+  color: var(--black);
+  border-radius: 10px;
+  padding: var(--space-3) var(--space-4);
   font-family: var(--font-mono);
   font-size: 12.5px;
+  font-weight: bold;
+  min-height: 44px;
+  width: 100%;
 }
 
+/* Barra de ações — fixa no rodapé no mobile, sempre alcançável
+   com o polegar, como um app de verdade */
 .form-actions {
   display: flex;
   gap: var(--space-3);
@@ -344,18 +662,33 @@ body.admin {
   flex: 1;
 }
 
-.helper-text {
-  font-size: 12px;
-  color: var(--ink-soft);
-  margin-top: 4px;
+@media (max-width: 640px) {
+  .form-actions {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin-top: 0;
+    padding: var(--space-3) var(--space-4) calc(var(--space-3) + env(safe-area-inset-bottom));
+    background: var(--surface);
+    box-shadow: 0 -2px 12px rgba(14, 26, 46, 0.1);
+    z-index: 40;
+  }
+
+  .admin-main:has(.form-actions) {
+    padding-bottom: calc(96px + env(safe-area-inset-bottom));
+  }
 }
 
+/* ---------------------------------------------------------
+   Fotos do produto
+   --------------------------------------------------------- */
 .image-preview {
   width: 100px;
   height: 125px;
-  border-radius: 8px;
+  border-radius: 10px;
   overflow: hidden;
-  background: var(--canvas);
+  background: var(--bg-page);
   margin-bottom: var(--space-3);
 }
 
@@ -367,9 +700,29 @@ body.admin {
 
 .photo-gallery {
   display: flex;
-  flex-wrap: wrap;
   gap: var(--space-3);
   margin-bottom: var(--space-3);
+  flex-wrap: wrap;
+}
+
+@media (max-width: 640px) {
+  /* Carrossel horizontal no mobile em vez de quebrar linha */
+  .photo-gallery {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+    padding-bottom: 4px;
+    margin-left: calc(var(--space-4) * -1);
+    margin-right: calc(var(--space-4) * -1);
+    padding-left: var(--space-4);
+    padding-right: var(--space-4);
+  }
+
+  .photo-gallery .photo-item {
+    scroll-snap-align: start;
+    flex: none;
+  }
 }
 
 .photo-gallery .photo-item {
@@ -380,14 +733,14 @@ body.admin {
 .photo-gallery .photo-thumb {
   width: 92px;
   height: 92px;
-  border-radius: 8px;
+  border-radius: 10px;
   overflow: hidden;
-  background: var(--canvas);
+  background: var(--black);
   border: 2px solid transparent;
 }
 
 .photo-gallery .photo-item:first-child .photo-thumb {
-  border-color: var(--gold);
+  border-color: var(--brand-blue);
 }
 
 .photo-gallery .photo-thumb img {
@@ -400,7 +753,7 @@ body.admin {
   position: absolute;
   top: 4px;
   left: 4px;
-  background: var(--gold);
+  background: var(--brand-blue);
   color: #fff;
   font-size: 9px;
   font-weight: 700;
@@ -413,6 +766,7 @@ body.admin {
   display: flex;
   justify-content: space-between;
   margin-top: 4px;
+  gap: 4px;
 }
 
 .photo-gallery .photo-actions button {
@@ -420,21 +774,31 @@ body.admin {
   background: #fff;
   border-radius: 6px;
   font-size: 11px;
-  padding: 2px 6px;
+  padding: 4px 6px;
+  min-height: 28px;
+  flex: none;
+}
+
+.photo-gallery .photo-actions button:disabled {
+  opacity: 0.35;
 }
 
 .photo-gallery .photo-actions .remove-photo {
-  color: var(--thread);
-  border-color: var(--thread);
+  color: var(--stock-out);
+  border-color: var(--stock-out);
+  flex: 1;
 }
 
+/* ---------------------------------------------------------
+   Toast
+   --------------------------------------------------------- */
 .toast {
   position: fixed;
   left: 50%;
-  bottom: 24px;
+  bottom: calc(24px + env(safe-area-inset-bottom));
   transform: translateX(-50%) translateY(20px);
-  background: var(--denim);
-  color: var(--paper);
+  background: var(--navy);
+  color: #fff;
   padding: var(--space-3) var(--space-5);
   border-radius: var(--radius-pill);
   font-size: 13.5px;
@@ -443,9 +807,18 @@ body.admin {
   pointer-events: none;
   transition: opacity 0.2s ease, transform 0.2s ease;
   z-index: 60;
+  max-width: calc(100vw - var(--space-6));
+  text-align: center;
 }
 
 .toast.show {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
+}
+
+@media (max-width: 640px) {
+  /* sobe o toast pra não ficar atrás da barra fixa do form */
+  body:has(.form-actions) .toast {
+    bottom: calc(88px + env(safe-area-inset-bottom));
+  }
 }
