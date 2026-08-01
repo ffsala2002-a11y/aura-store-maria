@@ -10,7 +10,7 @@ export const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiO
 
 // Número de WhatsApp da loja, formato internacional, só dígitos.
 // Exemplo: (11) 91234-5678  ->  5511912345678
-export const WHATSAPP_NUMBER = "5563999789035";
+export const WHATSAPP_NUMBER = "556399714667";
 
 // Nome da loja, usado nos títulos e na mensagem do WhatsApp
 export const STORE_NAME = "Aura Store";
