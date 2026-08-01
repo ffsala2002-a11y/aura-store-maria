@@ -998,6 +998,14 @@ body {
   align-items: center;
   gap: var(--space-3);
   text-align: right;
+  position: relative;
+}
+
+.site-footer .footer-right .dev {
+  position: absolute;
+  top: 2rem;
+  left: -3rem;
+  font-size: 10px;
 }
 
 .site-footer .wa-icon-btn {
@@ -1096,6 +1104,7 @@ body {
   height: 100%;
   padding: var(--space-5) var(--space-4);
   overflow-y: auto;
+  position: relative;
 }
 
 .drawer-panel .logo {
@@ -1131,6 +1140,21 @@ body {
   font-weight: 500;
   color: var(--ink);
   border-bottom: 1px solid var(--line);
+}
+
+.drawer-panel .box-dev {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--gray);
+}
+
+.drawer-panel .box-dev p {
+  font-size: 10px;
 }
 
 /* Toast simples de "adicionado ao carrinho" */

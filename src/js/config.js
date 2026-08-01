@@ -13,7 +13,7 @@ export const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiO
 export const WHATSAPP_NUMBER = "5563999789035";
 
 // Nome da loja, usado nos títulos e na mensagem do WhatsApp
-export const STORE_NAME = "AUG Moda";
+export const STORE_NAME = "Aura Store";
 
 // As fotos dos produtos são enviadas pro GitHub através de uma
 // Edge Function do Supabase (veja supabase/functions/upload-image).

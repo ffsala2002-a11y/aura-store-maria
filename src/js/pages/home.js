@@ -1,10 +1,4 @@
-import {
-  fetchCatalog,
-  extractCategories,
-  totalStock,
-  coverImage,
-  galleryImages,
-} from "../catalog.js";
+import { fetchCatalog, extractCategories, totalStock, coverImage, galleryImages, } from "../catalog.js";
 import { initCartBadge, initContactLink, showToast, formatBRL } from "../ui.js";
 import { mountGallery } from "../gallery.js";
 import { addToCart } from "../cart.js";
@@ -114,11 +108,10 @@ function renderGrid() {
       <div class="thumb">
         ${discountPct ? `<span class="discount-badge">${discountPct}% OFF</span>` : ""}
         <button type="button" class="quick-view-btn" data-quick-view="${product.id}" aria-label="Visualização rápida">👁</button>
-        ${
-          cover
-            ? `<img src="${cover}" alt="${product.name}" loading="lazy" />`
-            : `<span class="placeholder">SEM FOTO</span>`
-        }
+        ${cover
+        ? `<img src="${cover}" alt="${product.name}" loading="lazy" />`
+        : `<span class="placeholder">SEM FOTO</span>`
+      }
       </div>
       <span class="eyebrow cat">${product.category}</span>
       <h3>${product.name}</h3>
@@ -183,12 +176,11 @@ function openQuickView(product) {
       <span class="eyebrow">${product.category}</span>
       <h3>${product.name}</h3>
       <div class="price-row">
-        ${
-          product.promo_price
-            ? `<span class="old price-mono">${formatBRL(product.price)}</span>
+        ${product.promo_price
+      ? `<span class="old price-mono">${formatBRL(product.price)}</span>
                <span class="now price-mono">${formatBRL(product.promo_price)}</span>`
-            : `<span class="now price-mono">${formatBRL(product.price)}</span>`
-        }
+      : `<span class="now price-mono">${formatBRL(product.price)}</span>`
+    }
       </div>
       <a href="produto.html?id=${product.id}" class="btn btn-primary" style="margin-top:16px">Ver produto completo</a>
     </div>
@@ -250,7 +242,6 @@ function openSortMenu() {
       <button type="button" class="drawer-link" data-sort="recent">Mais recentes</button>
       <button type="button" class="drawer-link" data-sort="price-asc">Menor preço</button>
       <button type="button" class="drawer-link" data-sort="price-desc">Maior preço</button>
-    </div>
   `;
   document.body.appendChild(menu);
 
@@ -277,13 +268,18 @@ function openDrawer() {
   overlay.className = "drawer-overlay main-drawer";
   overlay.innerHTML = `
     <div class="drawer-panel">
-      <div class="logo">AUG <span>MODA</span></div>
+      <div class="logo">Aura <span>Store</span></div>
       <div class="drawer-section-title">Categorias</div>
       ${extractCategories(allProducts)
-        .map((c) => `<button type="button" class="drawer-link" data-cat="${c}">${c}</button>`)
-        .join("")}
+      .map((c) => `<button type="button" class="drawer-link" data-cat="${c}">${c}</button>`)
+      .join("")}
       <div class="drawer-section-title">Ajuda</div>
       <button type="button" class="drawer-link" id="drawer-contact">💬 Falar no WhatsApp</button>
+
+      <div class="box-dev">
+         <p>© 2026 Aura Store. Todos os direitos reservados.</p>
+      </div>
+    </div>
     </div>
   `;
   document.body.appendChild(overlay);
